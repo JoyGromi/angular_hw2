@@ -10,6 +10,14 @@ export class AppComponent {
   // title = 'hotels';
   // TODO Add
 
+  public searchHotel: string;
+  public sortByStarAbc: boolean = true;
+  public setStarHotel: string = 'all';
+
+  public search(event: Event): void {
+    this.searchHotel = (event.target as HTMLInputElement).value;
+  }; 
+
   public hotels: IHotel[] = [
     {
       id: 0,
@@ -81,9 +89,16 @@ export class AppComponent {
       stars: 5
     }
   ];
+
   public currentHotel: IHotel = this.hotels[0];
 
   public setHotel(hotel: IHotel): void {
     this.currentHotel = hotel;
+  }
+  public sortByStar(): void {
+    this.sortByStarAbc = !this.sortByStarAbc;
+  }
+  public setStar(ob: any): void {
+    this.setStarHotel = ob.value;
   }
 }

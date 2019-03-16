@@ -1,17 +1,20 @@
 <div class="element-left">
+    
   <div class="element-bg-img">
     <img [src]="currentHotel.picture" alt="" class="img-responsible">
   </div>
+  
   <div class="element-left-bottom">
     <div class="village">
-      <h3></h3>
-      <span></span>
+ 
+     
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
           <div class="activity-row"
-               *ngFor="let hotel of hotels "
+               *ngFor="let hotel of hotels | filter: searchHotel: sortByStarAbc: setStarHotel; let odd=odd;"
                (click)="selectHotel(hotel)"
-               [ngClass]="{'active-hotel': hotel.id === currentHotel.id}">
+               [ngClass]="{odd: odd, 'active-hotel': hotel.id === currentHotel.id }"
+               >
             <div class="activity-desc">
               <h5>{{hotel.title}}</h5>
               <p>{{hotel.title}}</p>
@@ -25,6 +28,9 @@
                 </li>
               </ul>
             </div>
+
+            <button (click)="addFavorite(hotel); $event.stopPropagation()">Add to favorite</button>
+            
             <div class="clear"></div>
           </div>
         </div>

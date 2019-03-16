@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'hotels';
+  // title = 'hotels';
+  // TODO Add
 
   public hotels: IHotel[] = [
     {
